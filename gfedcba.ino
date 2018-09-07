@@ -1,0 +1,25 @@
+inline void reset() {
+    PORTD &= 0x0F;
+    PORTB &= 0xF0;
+}
+
+void setup() {
+    DDRD |= 0xF0;
+    DDRB |= 0x0F;
+    reset();
+}
+
+byte gfedcba[16] = {
+    0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07,
+    0x7F, 0x6F, 0x77, 0x7C, 0x39, 0x5E, 0x79, 0x71
+};
+int digit;
+
+void loop() {
+    reset();
+    PORTD |= (gfedcba[digit] & 0x0F) << 4;
+    PORTB |= (gfedcba[digit] & 0xF0) >> 4;
+
+    if (++digit > 15) digit = 0;
+    delay(1000);
+}
