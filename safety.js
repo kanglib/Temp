@@ -1,4 +1,9 @@
 // ==UserScript==
+// @name        KAIST Safety
+// @namespace   https://github.com/kanglib/Temp/blob/master/safety.js
+// @match       https://safety.kaist.ac.kr/NEXTER/index.html
+// @version     1.0
+// @run-at      document-idle
 // ==/UserScript==
 
 setInterval(function() {
